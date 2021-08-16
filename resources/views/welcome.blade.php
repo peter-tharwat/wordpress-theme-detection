@@ -36,7 +36,7 @@
             </a>
           </div>
           <div class="col d-flex justify-content-end"> 
-            <a href="#" style="color:#fff;" >
+            <a href="https://github.com/peter-tharwat/wordpress-theme-detection" style="color:#fff;" >
               <span class="d-md-inline-block d-none  font-1 ps-2" style="color:#fff; position: relative;"> Github</span>
               <span class="fab fa-github font-1 mb-4 d-inline-block" style="color:#fff"></span> 
             </a>
