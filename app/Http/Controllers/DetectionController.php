@@ -15,6 +15,7 @@ class DetectionController extends Controller
     public $protocol;
     public $theme_name;
     public $final_response;
+    public $readme_path;
 
     public function init(){
         $this->default_image= "https://discountseries.com/wp-content/uploads/2017/09/default.jpg";
@@ -61,7 +62,9 @@ class DetectionController extends Controller
                 'data'=>[
                     'theme_name'=>$this->theme_name,
                     'thumbnail'=>$this->get_thumbnail(),
-                    'readme'=>$this->get_readme(),
+                    'readme_url'=>$this->get_readme(),
+                    'readme_content'=>$this->get_readme_content(),
+                    'readme_links'=>$this->get_all_links($this->get_readme_content()),
                     'style_links'=>$this->get_all_links(file_get_contents($this->theme_path.$this->style_path))
                 ]
             ]);
@@ -128,9 +131,16 @@ class DetectionController extends Controller
             }
         }
         if($readme_link==$this->url.$this->prefix_path.$this->theme_name)return null;
-        return $readme_link;
+        else {
+            $this->readme_path=$readme_link;
+            return $readme_link;
+        }
     }
     public function prepare_response($array=[]){
         $this->final_response=$array;
+    }
+    public function get_readme_content(){
+        if($this->readme_path!=null)
+            return file_get_contents($this->readme_path);
     }
 }

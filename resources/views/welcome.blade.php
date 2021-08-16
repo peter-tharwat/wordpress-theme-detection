@@ -75,12 +75,36 @@
                     <div class="col-12 py-3 font-4" style="font-weight: bold;">
                         القالب : @{{response_date.data.theme_name}}
                     </div>
-                    <div class="col-12" v-if="response_date.data.style_links!=null">
+                    <div class="col-12 py-2" v-if="response_date.data.style_links!=null">
                         <h5>لتحميل القالب : </h5>
                         <div class="col-12" v-for="link in response_date.data.style_links">
                             <a v-bind:href="link">@{{link}}</a>
                         </div>
+
+
+
                     </div>
+                    <div class="col-12 py-2" v-if="response_date.data.readme_links!=null">
+                        <h5>روابط : </h5>
+                          <div class="col-12" v-for="link in response_date.data.readme_links">
+                            <a v-bind:href="link">@{{link}}</a>
+                        </div>
+                    </div>
+                    <div class="col-12 py-2" v-if="response_date.data.readme_url">
+                        <h5>رابط إقراً ايضاً : </h5>
+                          <div class="col-12" v-if="response_date.data.readme_url!=null">
+                            <a v-bind:href="response_date.data.readme_url">@{{response_date.data.readme_url}}</a>
+                        </div>
+                    </div>
+                    <div class="col-12 py-2" v-if="response_date.data.readme_url">
+                        <h5>محتوى إقرأ ايضاً: </h5>
+                          <div class="col-12" v-if="response_date.data.readme_content!=null">
+                            @{{response_date.data.readme_content}}
+                        </div>
+                    </div>
+
+                                            
+
                 </div>
                  
              </div>
