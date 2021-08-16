@@ -16,4 +16,4 @@ use App\Http\Controllers\DetectionController;
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('/detect',[DetectionController::class,'detect']);
+Route::post('/detect',[DetectionController::class,'detect'])->name('detect');
